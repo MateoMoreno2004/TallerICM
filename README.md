@@ -34,12 +34,12 @@ Al seleccionar un usuario, se despliega una pantalla de detalle con toda su info
 3. Sincroniza las dependencias de Gradle.
 4. Ejecuta la app en un emulador o dispositivo físico (SDK mínimo 24).
 
-##📚 API usada
+## 📚 API usada
 
 Se consume la API de DummyJSON que devuelve información de prueba de usuarios en formato JSON.
 Ejemplo de endpoint: https://dummyjson.com/users
 
-##✨ Autor
+## ✨ Autor
 
 Proyecto realizado como parte de un taller de Android con Jetpack Compose.
 Desarrollado por: Mateo Moreno ✨
