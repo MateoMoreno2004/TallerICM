@@ -25,7 +25,6 @@ fun AppNavHost() {
     val nav = rememberNavController()
     val vm: UsersViewModel = viewModel()
 
-    // Este Scaffold aplica padding para status/navigation bars (safe areas)
     Scaffold(contentWindowInsets = WindowInsets.safeDrawing) { innerPadding ->
         Box(Modifier.fillMaxSize().padding(innerPadding)) {
             NavHost(navController = nav, startDestination = "list") {

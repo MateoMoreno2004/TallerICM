@@ -1,16 +1,22 @@
 <resources>
+    <!-- App -->
     <string name="app_name">Taller</string>
 
-    <!-- Pantalla lista -->
-    <string name="user_list_title">Total usuarios: %1$d</string>
-    <string name="company_label">Compañía: %1$s</string>
+    <!-- Lista -->
+    <string name="total_users">Total usuarios: %1$d</string>
+    <string name="loading">Cargando…</string>
 
-    <!-- Pantalla detalle -->
-    <string name="email_label">Email: %1$s</string>
-    <string name="phone_label">Teléfono: %1$s</string>
-    <string name="age_label">Edad: %1$d</string>
-    <string name="gender_label">Género: %1$s</string>
-    <string name="birth_label">Nacimiento: %1$s</string>
-    <string name="height_label">Altura: %1$.2f m</string>
-    <string name="weight_label">Peso: %1$.2f kg</string>
+    <!-- Detalle -->
+    <string name="company_label">Empresa</string>
+    <string name="phone_label">Teléfono</string>
+    <string name="email_label">Email</string>
+    <string name="age_label">Edad</string>
+    <string name="gender_label">Género</string>
+    <string name="height_label">Altura</string>
+    <string name="weight_label">Peso</string>
+    <string name="university_label">Universidad</string>
+    <string name="not_available">N/D</string>
+
+    <!-- Accesibilidad / contentDescription -->
+    <string name="user_photo_content_desc">Foto %1$s</string>
 </resources>

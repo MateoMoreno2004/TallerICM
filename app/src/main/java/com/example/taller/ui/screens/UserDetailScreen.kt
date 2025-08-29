@@ -11,16 +11,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.example.taller.data.model.User
 import com.example.taller.ui.components.LabeledValue
+import com.example.taller.R
 
 @Composable
 fun UserDetailScreen(user: User) {
     val context = LocalContext.current
+    val notAvailable = stringResource(R.string.not_available)
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -28,7 +32,11 @@ fun UserDetailScreen(user: User) {
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        AsyncImage(model = user.image, contentDescription = "Foto ${user.name}", modifier = Modifier.size(180.dp))
+        AsyncImage(
+            model = user.image,
+            contentDescription = stringResource(R.string.user_photo_content_desc, user.name),
+            modifier = Modifier.size(180.dp)
+        )
         Spacer(Modifier.height(12.dp))
         Text(
             "${user.name} ${user.lastName}",
@@ -38,9 +46,8 @@ fun UserDetailScreen(user: User) {
         )
         Spacer(Modifier.height(12.dp))
 
-        LabeledValue("Empresa", user.company.name)
+        LabeledValue(stringResource(R.string.company_label), user.company.name)
 
-        // >>> Solo el número clickeable (sin botón)
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -48,7 +55,7 @@ fun UserDetailScreen(user: User) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                "Teléfono",
+                stringResource(R.string.phone_label),
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.primary
             )
@@ -66,13 +73,12 @@ fun UserDetailScreen(user: User) {
         }
 
         Spacer(Modifier.height(8.dp))
-        // 6 campos adicionales:
-        LabeledValue("Email", user.email)
-        LabeledValue("Edad", user.age.toString())
-        LabeledValue("Género", user.gender)
-        LabeledValue("Altura", user.height?.toString() ?: "N/D")
-        LabeledValue("Peso", user.weight?.toString() ?: "N/D")
-        LabeledValue("Universidad", user.university ?: "N/D")
+        LabeledValue(stringResource(R.string.email_label), user.email)
+        LabeledValue(stringResource(R.string.age_label), user.age.toString())
+        LabeledValue(stringResource(R.string.gender_label), user.gender)
+        LabeledValue(stringResource(R.string.height_label), user.height?.toString() ?: notAvailable)
+        LabeledValue(stringResource(R.string.weight_label), user.weight?.toString() ?: notAvailable)
+        LabeledValue(stringResource(R.string.university_label), user.university ?: notAvailable)
     }
 }
 

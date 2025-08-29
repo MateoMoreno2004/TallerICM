@@ -9,9 +9,11 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.taller.data.model.User
 import com.example.taller.ui.components.UserListItem
+import com.example.taller.R
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -28,11 +30,8 @@ fun UsersListScreen(
         return
     }
 
-    LazyColumn(
-        modifier = Modifier.fillMaxSize()
-    ) {
+    LazyColumn(modifier = Modifier.fillMaxSize()) {
         stickyHeader {
-            // En UsersListScreen: quita .statusBarsPadding() del header si lo tenías
             Surface(
                 color = MaterialTheme.colorScheme.primary,
                 contentColor = MaterialTheme.colorScheme.onPrimary,
@@ -40,7 +39,7 @@ fun UsersListScreen(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    text = "Total usuarios: ${users.size}",
+                    text = stringResource(R.string.total_users, users.size),
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp, vertical = 12.dp),
@@ -53,5 +52,6 @@ fun UsersListScreen(
         }
     }
 }
+
 
 
