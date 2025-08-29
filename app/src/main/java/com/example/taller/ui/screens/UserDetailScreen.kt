@@ -40,11 +40,18 @@ fun UserDetailScreen(user: User) {
 
         LabeledValue("Empresa", user.company.name)
 
+        // >>> Solo el número clickeable (sin botón)
         Row(
-            modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 4.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text("Teléfono", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
+            Text(
+                "Teléfono",
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary
+            )
             Spacer(Modifier.width(8.dp))
             Text(
                 user.phone,
@@ -58,15 +65,8 @@ fun UserDetailScreen(user: User) {
             )
         }
 
-        Button(
-            modifier = Modifier.fillMaxWidth(),
-            onClick = {
-                val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:${user.phone}"))
-                context.startActivity(intent)
-            }
-        ) { Text("Llamar") }
-
         Spacer(Modifier.height(8.dp))
+        // 6 campos adicionales:
         LabeledValue("Email", user.email)
         LabeledValue("Edad", user.age.toString())
         LabeledValue("Género", user.gender)

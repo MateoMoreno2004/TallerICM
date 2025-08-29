@@ -23,7 +23,7 @@ fun UserListItem(user: User, onClick: () -> Unit) {
         trailingContent = { Icon(Icons.Filled.ChevronRight, contentDescription = null) },
         modifier = Modifier.clickable(onClick = onClick).fillMaxWidth()
     )
-    Divider()
+    HorizontalDivider()
 }
 
 @Composable
